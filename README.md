@@ -6,7 +6,9 @@
 
 <div align="center">
 
-# To-Do List Project
+# To-Do List Website
+This is a simple website for Information Technology Institute -> (ICC)
+using a node.js and bootsrap etc... 
 
 ## Screenshots
 ![1](./Demo/1.png)
