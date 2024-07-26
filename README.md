@@ -9,8 +9,12 @@
 # To-Do List Website
 This is a simple website for Information Technology Institute -> (ICC)
 using a node.js and bootsrap etc... 
+</div>
 
 ## Screenshots
+
+<div align="center">
+
 ![1](./Demo/1.png)
 ![2](./Demo/2.png)
 ![3](./Demo/3.png)
