@@ -19,6 +19,8 @@ using a node.js and bootsrap etc...
 ![6](./Demo/6.png)
 ![7](./Demo/7.png)
 
+</div>
+
 ## Usage
 - **Linux:**
 ```bash
