@@ -229,23 +229,23 @@
 
     // Done Butt
     function checkedButt(e) {
-      const text = e.target.nextElementSibling;
+      const textItem = e.target.nextElementSibling;
       const checked = e.target.checked;
 
-      fetch("/doneItem", {
+      fetch("/toggleStatus", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id: text.parentElement.parentElement.id,
+          id: textItem.parentElement.parentElement.id,
           status: checked ? true : false,
         }),
       });
 
-      e.target.nextElementSibling.outerHTML = checked
-        ? `<s>${text.textContent}</s>`
-        : `<span>${text.textContent}</span>`;
+      textItem.outerHTML = checked
+        ? `<s>${textItem.textContent}</s>`
+        : `<span>${textItem.textContent}</span>`;
     }
 
     // Delete Butt
