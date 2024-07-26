@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://iti.gov.eg/" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="https://shamra-academia.com/uploads/publishers/logoc1ee0a1961b28b92869f371af51313da.png" alt="ITI Logo">
+    <img width="150" src="https://shamra-academia.com/uploads/publishers/logoc1ee0a1961b28b92869f371af51313da.png" alt="ITI Logo">
   </a>
 </p>
 
