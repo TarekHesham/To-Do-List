@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 module.exports = {
-  name: "doneItem",
+  name: "toggleStatus",
   method: "POST",
   run: (req, res, query) => {
     // Get data from request
