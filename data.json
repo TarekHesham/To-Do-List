@@ -1,0 +1,37 @@
+[
+  {
+    "id": "1",
+    "item": "Watch movies",
+    "status": true
+  },
+  {
+    "id": "2",
+    "item": "Learn more about Node.Js",
+    "status": false
+  },
+  {
+    "id": "3",
+    "item": "Hey baby",
+    "status": false
+  },
+  {
+    "id": "4",
+    "item": "what to do now",
+    "status": false
+  },
+  {
+    "id": "5",
+    "item": "Do you Love me",
+    "status": true
+  },
+  {
+    "id": "6",
+    "item": "play games",
+    "status": false
+  },
+  {
+    "id": "7",
+    "item": "Upload to GitHub",
+    "status": false
+  }
+]

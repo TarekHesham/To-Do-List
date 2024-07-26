@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TODO List</title>
+  <link rel="shortcut icon"
+    href="https://m.foolcdn.com/media/affiliates/original_images/microsoft_to_do_5xhHsbw.png?width=64"
+    type="image/x-icon">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@600&display=swap" rel="stylesheet" />
+
+  <!-- Style -->
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: "Josefin Sans", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow-x: hidden;
+      background-color: #111111;
+    }
+
+    .fa-delete-left:hover {
+      color: #fb3232 !important;
+    }
+
+    .list-group {
+      max-height: 45vh !important;
+      overflow: auto;
+    }
+
+    a {
+      display: contents;
+    }
+
+    .list-group::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: #f5f5f5;
+      border-radius: 10px;
+    }
+
+    .list-group::-webkit-scrollbar {
+      width: 8px;
+      background-color: #f5f5f5;
+
+    }
+
+    .list-group::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, rgb(0 110 219)), color-stop(0.72, rgb(25 151 223)), color-stop(0.86, rgb(54 176 237)));
+    }
+
+    ::first-letter {
+      text-transform: uppercase !important;
+    }
+
+    li {
+      transition: all .3s 0s ease-in !important;
+      margin-right: 3px;
+    }
+
+    li:hover {
+      cursor: pointer;
+      color: white;
+      background-color: #0d6dfd7f;
+    }
+
+    li::before {
+      content: "";
+      height: 80%;
+      width: 3px;
+      left: 4px;
+      background-color: #18ab67;
+      border-radius: 25px;
+      position: absolute;
+    }
+
+    li:hover::before {
+      cursor: pointer;
+      background-color: #0d6dfd !important;
+    }
+
+    li:has(input[type=checkbox]:checked) {
+      color: white;
+      background-color: #18ab67;
+    }
+
+    li:has(input[type=checkbox]:checked):hover {
+      background-color: #c34c4c !important;
+    }
+
+    li:has(input[type=checkbox]:checked):hover::before {
+      background-color: white !important;
+    }
+
+    li:has(input[type=checkbox]:checked)::before {
+      background-color: white;
+    }
+
+    li:has(input[type=checkbox]:checked) .text-primary {
+      color: white !important;
+    }
+
+    .me-2 {
+      margin-bottom: .3rem !important;
+    }
+
+    .mb-3 {
+      margin-bottom: 0.5rem !important;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="h-100 w-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 15px">
+            <div class="card-body p-5">
+              <header class="d-flex align-items-end justify-content-center m-1">
+                <img src="https://cdn.icon-icons.com/icons2/3053/PNG/512/microsoft_to_do_macos_bigsur_icon_189960.png"
+                  alt="Icon" width="75px">
+                <h1 class="mb-3 text-center align-items-center">Todo List</h1>
+              </header>
+
+              <form class="d-flex justify-content-center align-items-center mb-4">
+                <div class="input-group">
+                  <i
+                    class="fa-solid fa-notes-medical input-group-text align-content-center bg-primary-subtle text-dark-emphasis"></i>
+                  <div class="form-floating form-outline flex-fill" data-mdb-input-init>
+                    <input type="text" id="addItem" class="form-control form-control-lg" name="newItem"
+                      placeholder="What do you need to do today?" />
+                    <label class="form-label" for="addItem">What do you need to do today?</label>
+                  </div>
+                </div>
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg ms-2"
+                  id="save">
+                  Add
+                </button>
+              </form>
+
+              <ul class="list-group mb-0"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- <div class="toast align-items-center text-white bg-primary border-0 show" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div> -->
+
+  <script>
+    // Get data
+    const listItems = document.querySelector("ul");
+    fetch("/items")
+      .then((res) => res.json())
+      .then((items) => {
+        for (let item of items.data) {
+          listItems.innerHTML += `
+                    <li onclick="selectItem(event)" id="${item.id
+            }" class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-1 mb-2">
+                      <div class="d-flex align-items-center">
+                        <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." onchange="checkedButt(event)" ${item.status ? `checked` : `unchecked`
+            }/>
+                      ${item.status
+              ? `<s>${item.item}</s>`
+              : `<span>${item.item}</span>`
+            }
+                      </div>
+                      <a href="#" data-mdb-tooltip-init title="Remove item" onclick="deleteItem(event)">
+                        <i class="fa-solid fa-delete-left text-primary"></i>
+                      </a>
+                    </li>
+                `;
+        }
+      })
+      .catch((err) => console.error(err));
+
+    // Save Button
+    const buttSave = document.getElementById("save");
+    buttSave.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const dataLabel = document.querySelector("form input[name=newItem]");
+      if (!dataLabel.value) return;
+
+      const sendData = fetch("/createItem", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(dataLabel.value),
+      });
+
+      listItems.innerHTML += `
+                <li onclick="selectItem(event)" id="${listItems.children.length
+          ? +listItems.children[listItems.children.length - 1].id + 1
+          : 1
+        }" class="list-group-item d-flex justify-content-between align-items-center border-start-0 border-top-0 border-end-0 border-bottom rounded-1 mb-2">
+                  <div class="d-flex align-items-center">
+                    <input class="form-check-input me-2" type="checkbox" value="" aria-label="..." onchange="checkedButt(event)"/>
+                    <span>${dataLabel.value}</span>
+                  </div>
+                  <a href="#!" data-mdb-tooltip-init title="Remove item" onclick="deleteItem(event)">
+                    <i class="fa-solid fa-delete-left text-primary"></i>
+                  </a>
+                </li>
+            `;
+
+      dataLabel.value = "";
+    });
+
+    // Done Butt
+    function checkedButt(e) {
+      const text = e.target.nextElementSibling;
+      const checked = e.target.checked;
+
+      fetch("/doneItem", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: text.parentElement.parentElement.id,
+          status: checked ? true : false,
+        }),
+      });
+
+      e.target.nextElementSibling.outerHTML = checked
+        ? `<s>${text.textContent}</s>`
+        : `<span>${text.textContent}</span>`;
+    }
+
+    // Delete Butt
+    function deleteItem(e) {
+      const parentLi = e.target.parentElement.parentElement;
+
+      fetch("/deleteItem", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: parentLi.id,
+      });
+
+      parentLi.remove();
+    }
+
+    // Select from li
+    function selectItem(e) {
+      e.target?.firstElementChild?.firstElementChild?.click();
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <!-- <script>
+          const toastElList = [].slice.call(document.querySelectorAll(".toast"));
+          const toastList = toastElList.map(function (toastEl) {
+            return new bootstrap.Toast(toastEl, {
+              autohide: true,
+              animation: true,
+              delay: 3000
+            });
+          });
+    </script> -->
+</body>
+
+</html>
