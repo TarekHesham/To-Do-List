@@ -27,7 +27,7 @@ This is a simple website for Information Technology Institute -> (ICC)
 </div>
 
 ## Usage
-- **Linux:**
+**Linux:**
 ```bash
 git clone https://github.com/TarekHesham/To-Do-List.git
 cd To-Do-List
@@ -35,7 +35,7 @@ npm install
 npm run dev
 ```
 
-- **Windows:**
+**Windows:**
 ```bash
 npm install
 npm run dev
